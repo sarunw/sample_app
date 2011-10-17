@@ -32,6 +32,8 @@ describe UsersController do
       get :show, :id => @user
       response.should have_selector("h1>img", :class => "gravatar")
     end
+    
+   
       
   end
 
@@ -46,6 +48,27 @@ describe UsersController do
     it "should have the right title" do
       get :new
       response.should have_selector('title', :content => "Sign up")
+    end
+    
+     # Exercises 8
+    it "should have a name field" do
+      get :new
+      response.should have_selector("input[name='user[name]'][type='text']")
+    end
+    
+    it "should have an email field" do
+      get :new
+      response.should have_selector("input[name='user[email]'][type='text']")
+    end
+
+    it "should have a password field" do
+      get :new
+      response.should have_selector("input[name='user[password]'][type='password']")
+    end
+
+    it "should have a password confirmation field" do
+      get :new
+      response.should have_selector("input[name='user[password_confirmation]'][type='password']")
     end
     
   end
@@ -97,6 +120,13 @@ describe UsersController do
       it "should render the 'new' page" do
         post :create, :user => @attr
         response.should render_template('new')
+      end
+      
+      it "should reset password" do
+        post :create, :user => @attr.merge(:password => "foobar",
+                                           :password_confirmation => "foobar")
+        assigns(:user).password.should be_blank
+        assigns(:user).password_confirmation.should be_blank
       end
     end
   end
