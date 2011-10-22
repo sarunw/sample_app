@@ -249,3 +249,13 @@ form.new_micropost textarea {
   height: 4em;
   margin-bottom: 0;
 }
+
+/* Exercise 11 */
+
+input.micropost_counter {
+	border: none;
+}
+
+input.over_limit{
+	color: red;
+}

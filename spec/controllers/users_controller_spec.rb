@@ -41,6 +41,21 @@ describe UsersController do
       response.should have_selector("span.content", :content => mp2.content)
     end
     
+    # # Exercise 11
+    #     it "should paginate microposts" do
+    #       31.times do
+    #         @user.microposts.create!(:content => "content")
+    #       end
+    #       
+    #       get :show, :id => @user
+    #       response.should have_selector("div.pagination")
+    #       response.should have_selector("span.disabled", :content => "Previous")
+    #       response.should have_selector("a", :href => "/users/1?page=2",
+    #                                          :content => "2")
+    #       response.should have_selector("a", :href => "/users/1?page=2",
+    #                                          :content => "Next")
+    #     end
+
       
   end
 

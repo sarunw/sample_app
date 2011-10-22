@@ -36,6 +36,26 @@ describe "Microposts" do
           response.should have_selector("span.content", :content => content)
         end.should change(Micropost, :count).by(1)
       end
+      
+      # # Exercise 11
+      #       it "should display proper micropost count" do
+      #         content = "Lorem ipsum dolor sit amet"
+      # 
+      #         lambda do
+      #           visit root_path
+      #           response.should have_selector("span.microposts", :content => "0")
+      #           response.should have_selector("span.microposts", :content => "micropost")
+      #           fill_in :micropost_content, :with => content
+      #           click_button
+      #           response.should have_selector("span.microposts", :content => "1")
+      #           response.should have_selector("span.microposts", :content => "micropost")
+      #           fill_in :micropost_content, :with => content
+      #           click_button
+      #           response.should have_selector("span.microposts", :content => "2")
+      #           response.should have_selector("span.microposts", :content => "micropost")
+      #         end.should change(Micropost, :count).by(2)
+      #       end
+      
     end
   end
 end

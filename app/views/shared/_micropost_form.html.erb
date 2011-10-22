@@ -1,9 +1,14 @@
+<% content_for :microposts_script do %>
+  <%= javascript_include_tag  "microposts" %>
+<% end %>
+
 <%= form_for @micropost do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   <div class="field">
-    <%= f.text_area :content %>
+    <%= f.text_area :content, :onkeyup => "limiter()", :onblur => "limiter()" %>  
   </div>
   <div class="actions">
     <%= f.submit "Submit" %>
+    <%= text_field_tag 'micropost_counter', 140, :disabled => true, :class=> 'micropost_counter' %>
   </div>
 <% end %>
