@@ -5,7 +5,7 @@
 <%= form_for @micropost do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   <div class="field">
-    <%= f.text_area :content, :onkeyup => "limiter()", :onblur => "limiter()" %>  
+    <%= f.text_area :content, :onkeydown => "limiter()", :onkeyup => "limiter()" %>  
   </div>
   <div class="actions">
     <%= f.submit "Submit" %>
